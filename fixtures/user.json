@@ -1,0 +1,9 @@
+{
+    "name": "standard_user",
+    "password": "secret_sauce",
+    "products":"Products",
+    "wrong_password":"allow_me",
+    "wrong_username":"wrong_password",
+    "swag_labs":"Swag Labs"
+}
+  
