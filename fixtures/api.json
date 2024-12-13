@@ -1,0 +1,8 @@
+{
+    "baseUrl":"https://petstore.swagger.io/v2",
+    "status": ["available", "pending", "sold"],
+    "getPetByStatus":"/pet/findByStatus",
+    "pet":"/pet"
+   
+}
+  
