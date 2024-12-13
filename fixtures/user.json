@@ -4,6 +4,11 @@
     "products":"Products",
     "wrong_password":"allow_me",
     "wrong_username":"wrong_password",
-    "swag_labs":"Swag Labs"
+    "swag_labs":"Swag Labs",
+    "item_1": "Sauce Labs Backpack",
+    "item_2": "Sauce Labs Bolt T-Shirt",
+    "first_Name": "Sauce",
+    "last_Name": "Labs",
+    "zip_code": "10001"
 }
   

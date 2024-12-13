@@ -1,7 +1,7 @@
 // LoginPage.js
 
 const { expect } = require('@playwright/test');
-const selectors = require('../pages/objects/logout_objects');
+const selectors = require('./objects/logout-objects.js');
 const helper = require('../utils/helper.js');
 
 export class LogoutPage {

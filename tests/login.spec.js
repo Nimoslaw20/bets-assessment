@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
-const { LoginPage } = require('../pages/login_page.js');
-const { LogoutPage } = require('../pages/logout_page.js');
+const { LoginPage } = require('../pages/login-page.js');
+const { LogoutPage } = require('../pages/logout-page.js');
 const userData = require('../fixtures/user.json');
 
 test.describe('Login Tests', () => {
@@ -13,19 +13,20 @@ test.describe('Login Tests', () => {
     await loginPage.goto();
   });
 
-  test('Successful login with valid credentials', async () => {
+  test('should be able to login with valid credentials', async () => {
     await loginPage.login(userData.name, userData.password);
     await loginPage.confirmUserDashboard(userData.products);
+   
   });
 
  
-  test('Login fails with invalid credentials', async () => {
+  test('should fail when invalid credentials are used', async () => {
     await loginPage.login(userData.wrong_username, userData.wrong_password);
     await loginPage.getErrorMessage();
   });
 
-  
-  test('Logout', async () => {
+
+  test('should be able to logout', async () => {
     await logoutPage.logout();
   });
 
