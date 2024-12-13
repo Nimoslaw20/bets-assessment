@@ -47,11 +47,10 @@ test.describe('Add to Cart & Checkout Flow', () => {
   });
 
 
-
   test('should be able to view  product details', async ({page}) => {
     await loginPage.login(userData.name, userData.password);
     await loginPage.confirmUserDashboard(userData.products);
-    await addToCartPage.getToItemDetails()
+    await addToCartPage.getToItemDetails();
     await addToCartPage.getSelectedProductName(userData.item_1);
   });
 
