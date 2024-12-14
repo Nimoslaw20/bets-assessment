@@ -175,7 +175,7 @@
 
      - Test Data:
 
-     
+         Here is an example of the `pet` object:
 
 ```json
 {
@@ -203,6 +203,9 @@
 
 
 ### Test Case 1: Verify that api can get pet by status
+ - Test Data:
+
+         Here is an example:
 
 ```json
 {
@@ -216,6 +219,10 @@
 
 ### Test Case 2: Verify that api returns 404 when an empty string is passed as a status
 
+  - Test Data:
+
+         Here is an example of the `pet` object:
+
 ```json
 {
  
@@ -225,6 +232,11 @@
 
 ```
 ### Test Case 3: Verify that api returns 404 when an uppercase status data is passed as a status
+
+ - Test Data:
+
+         Here is an example of the `pet` object:
+
 ```json
 {
  
