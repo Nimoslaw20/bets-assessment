@@ -128,4 +128,4 @@
 
 
 # **Some bugs Founds:**
-## User can checkout an empty cart.
+## 1. User can checkout an empty cart.
