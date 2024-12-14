@@ -25,6 +25,15 @@ export async function getElementByRole(page, element, text) {
   };
 
 
+  export const expectStatus404 = (response) => {
+    expect(response.status()).toBe(404);
+  };
+
+  export const expectStatus500 = (response) => {
+    expect(response.status()).toBe(500);
+  };
+
+
   export const expectResponseBodyArray = (responseBody) => {
     expect(Array.isArray(responseBody)).toBeTruthy();
   };

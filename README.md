@@ -129,3 +129,111 @@
 
 # **Some bugs Founds:**
 ## 1. User can checkout an empty cart.
+
+
+
+# **Part 1: API Testing**
+
+
+## Chosen API
+
+### POST /pet – Create a new pet to the store.
+### GET /pet/findByStatus – Find pet by ID.
+
+
+## Test Cases - POST /pet
+
+### Test Case 1: Verify that a new pet can be created with valid data.
+
+    - Test Data:
+
+         Here is an example of the `pet` object:
+
+```json
+{
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "German Shepherd"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "https://img.freepik.com/free-photo/adorable-brown-white-basenji-dog-smiling-giving-high-five-isolated-white_346278-1657.jpg?t=st=1734213310~exp=1734216910~hmac=341836e7faedb4ee10713eaaada69eb8dd7047aace88e036eac4bbbbb24cd76d&w=1800"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "Dog"
+    }
+  ],
+  "status": "available"
+} 
+
+```
+
+### Test Case 2: Verify that adding a pet with an invalid data type returns a 500 internal server error.
+
+     - Test Data:
+
+     
+
+```json
+{
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "German Shepherd"
+  },
+  "name": "doggie",
+  "photoUrls": " ",
+  "tags": [
+    {
+      "id": 0,
+      "name": "Dog"
+    }
+  ],
+  "status": "available"
+} 
+
+```
+
+
+
+## Test Cases - GET /pet/findByStatus
+
+
+### Test Case 1: Verify that api can get pet by status
+
+```json
+{
+ 
+  "status": "available"
+} 
+
+
+```
+
+
+### Test Case 2: Verify that api returns 404 when an empty string is passed as a status
+
+```json
+{
+ 
+  "status": ""
+} 
+
+
+```
+### Test Case 3: Verify that api returns 404 when an uppercase status data is passed as a status
+```json
+{
+ 
+  "status": "SOLD"
+} 
+
+
+```
+
+
+
+

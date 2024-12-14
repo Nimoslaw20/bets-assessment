@@ -10,10 +10,48 @@ test.describe(`POST ${apiData.pet}`, () => {
         id: 0,
         category: {
           id: 0,
+          name: 'German Sherperd'
+        },
+        name: 'doggie',
+        photoUrls: [apiData.dogImage],
+        tags: [
+          {
+            id: 0,
+            name: 'Dog'
+          }
+        ],
+        status: 'available'
+      };
+  
+      const response = await request.post(`${apiData.baseUrl}${apiData.pet}`, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: pet
+      });
+  
+      expect(response.status()).toBe(200);
+      console.log("Response status is ", response.status());
+      const responseBody = await response.json();
+      console.log('Response Body:', responseBody);
+      expect(responseBody).toHaveProperty('id');
+      expect(responseBody).toHaveProperty('name', pet.name);
+      expect(responseBody).toHaveProperty('status', pet.status);
+    });
+
+
+
+
+
+    test('should return 500 when internal server error occurs', async ({ request }) => {
+      const pet = {
+        id: 2,
+        category: {
+          id: 0,
           name: 'string'
         },
         name: 'doggie',
-        photoUrls: ['string'],
+        photoUrls: '',
         tags: [
           {
             id: 0,
@@ -29,12 +67,9 @@ test.describe(`POST ${apiData.pet}`, () => {
         },
         data: pet
       });
+      console.log("Response status is ", response.status());
+      expect(response.status()).toBe(500);
   
-      expect(response.status()).toBe(200);
-  
-      const responseBody = await response.json();
-      expect(responseBody).toHaveProperty('id');
-      expect(responseBody).toHaveProperty('name', pet.name);
-      expect(responseBody).toHaveProperty('status', pet.status);
+     
     });
   });

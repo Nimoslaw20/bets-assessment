@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const apiData = require('../fixtures/api.json');
-const { expectStatus200, expectResponseBodyArray } = require('../utils/helper');
+const { expectStatus200,expectStatus500, expectStatus404, expectResponseBodyArray,  } = require('../utils/helper');
 
 
 test.describe(`GET ${apiData.getPetByStatus}`, () => {
@@ -25,7 +25,7 @@ test.describe(`GET ${apiData.getPetByStatus}`, () => {
       });
     
 
-  test('should get all pets by status - available', async ({ request }) => {
+  test('should get all pets by available as a status', async ({ request }) => {
 
 
       const response = await request.get(`${apiData.baseUrl}${apiData.getPetByStatus}`, {
@@ -44,7 +44,7 @@ test.describe(`GET ${apiData.getPetByStatus}`, () => {
   });
 
 
-  test('should get all pets by status - pending', async ({ request }) => {
+  test('should get all pets by pending as a status', async ({ request }) => {
 
 
       const response = await request.get(`${apiData.baseUrl}${apiData.getPetByStatus}`, {
@@ -63,7 +63,7 @@ test.describe(`GET ${apiData.getPetByStatus}`, () => {
   });
 
 
-  test('should get all pets by status - sold', async ({ request }) => {
+  test('should get all pets by sold as a status', async ({ request }) => {
 
       const response = await request.get(`${apiData.baseUrl}${apiData.getPetByStatus[2]}`, {
         params: {
@@ -84,4 +84,32 @@ test.describe(`GET ${apiData.getPetByStatus}`, () => {
       }
   
   });
+
+  test('should get a status of 404 when an empty string is passed as status', async ({ request }) => {
+
+    const response = await request.get(`${apiData.baseUrl}${apiData.getPetByStatus[2]}`, {
+      params: {
+        status: ""
+      }
+    });
+    console.log("response.status() is ", response.status());
+  
+    expectStatus404(response);
+  
+
+});
+
+test('should return a status of 404 when upper case status is used', async ({ request }) => {
+  const response = await request.get(`${apiData.baseUrl}${apiData.getPetByStatus[2]}`, {
+    params: { status: "SOLD" }
+  });
+  expectStatus404(response);
+ 
+});
+
+
+
+
+
+
 });
