@@ -1,3 +1,5 @@
+# **TEST PLAN**
+
 # **Part 1: UT Testing**
 
 ## __Feature 1: Login Functionality__
@@ -126,4 +128,4 @@
 
 
 # **Some bugs Founds:**
-##User can checkout an empty cart.
+## User can checkout an empty cart.
