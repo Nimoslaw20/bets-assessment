@@ -14,11 +14,10 @@ test.describe('Add to Cart & Checkout Flow', () => {
     await loginPage.goto();
 
   });
-  test('page should have products', async ({page}) => {
+  test('products page should have products', async ({page}) => {
     await loginPage.login(userData.name, userData.password);
     await loginPage.confirmUserDashboard(userData.products);
-    await addToCartPage.checkIfPageHasProducts();
-  
+    await addToCartPage.checkProductProperties();
   });
 
   test('should be able to checkout multiple products', async ({page}) => {

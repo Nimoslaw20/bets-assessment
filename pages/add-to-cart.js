@@ -23,6 +23,12 @@ export class AddToCartPage {
     this.cancelButton = selectors.cancelButton;
     this.backToProducts = selectors.backToProducts;
     this.inventoryItem = selectors.inventoryItem;
+    this.inventoryItemName = selectors.inventoryItemName;
+    this.inventoryContainer = selectors.inventoryContainer;
+    this.productDescription = selectors.productDescription;
+    this.productName = selectors.productName;
+    this.productPrice = selectors.productPrice;
+    this.inventorItemNameWithDataTest = selectors.inventorItemNameWithDataTest;
     }
 
 
@@ -31,11 +37,51 @@ export class AddToCartPage {
         expect(pageTitle).toEqual(title);
        }
 
-    async checkIfPageHasProducts(){
-     const productsLocator = await helper.getLocator(this.page, this.itemElement);
-     const products = await productsLocator.allTextContents();
-     expect(products.length).toBeGreaterThan(0);
-    }
+ 
+    async checkProductProperties() {
+      
+        const products = await (await helper.getLocator(this.page, this.inventoryContainer)).locator('.inventory_item');    
+        
+    
+        if(products == null){
+            console.error("Products not found.");
+            return;
+        }
+        
+        const count = await products.count();
+        expect(count).toEqual(6);
+      
+        for (let i = 0; i < count; i++) {
+          const product = products.nth(i);
+          console.log(`(${i}) - The Product Details - ${product}`);
+      
+          
+        await expect(product.locator(this.inventorItemNameWithDataTest)).toBeVisible(); 
+        const productName =  await product.locator(this.inventorItemNameWithDataTest).allTextContents(); 
+        console.log("The Product Name is ", productName);
+
+
+          await expect(product.locator(this.productDescription)).toBeVisible(); 
+          const checkProductDescription =  await product.locator(this.productDescription).allTextContents(); 
+          console.log("The Product Description is ", checkProductDescription);
+      
+          
+          const productImage = product.locator('img');
+          await expect(productImage).toBeVisible();
+
+          const imageLink = await productImage.getAttribute('src');
+          console.log("TThe Product Image is:", imageLink);
+          await expect(productImage).toHaveAttribute('src', /.+/); 
+      
+        
+          await expect(product.locator(this.productPrice)).toBeVisible(); 
+          const checkProductPrice =  await product.locator(this.productPrice).allTextContents(); 
+          console.log("The Product Price is ", checkProductPrice);
+        }
+      }
+
+
+
 
     async clickToAddProduct(productName){
        console.log(productName);
@@ -64,7 +110,7 @@ export class AddToCartPage {
         const badgeLocator = this.page.locator(this.countBagde); 
         const badgeText = await badgeLocator.textContent();
         console.log(`Badge Text: ${badgeText.trim()}`);   
-        const badgeNumber = parseInt(badgeText.trim(), 10);
+        const badgeNumber = Number.parseInt(badgeText.trim(), 10);
         console.log("badgeNumber is ", badgeNumber);
         expect(badgeNumber).toBeGreaterThan(0);
         expect(badgeNumber).toEqual(6);
@@ -76,7 +122,7 @@ export class AddToCartPage {
         const badgeLocator = this.page.locator(this.countBagde); 
         const badgeText = await badgeLocator.textContent();
         console.log(`Badge Text: ${badgeText.trim()}`);   
-        const badgeNumber = parseInt(badgeText.trim(), 10);
+        const badgeNumber = Number.parseInt(badgeText.trim(), 10);
         console.log("badgeNumber is ", badgeNumber);
         expect(badgeNumber).toBeGreaterThan(0);
         expect(badgeNumber).toEqual(1);
@@ -136,7 +182,7 @@ export class AddToCartPage {
     }
 
     async getSelectedProductName(productName){
-        const product = await (await helper.getLocator(this.page, this.inventoryItem)).textContent();
+        const product = await (await helper.getLocator(this.page, this.inventoryItemName)).textContent();
         if (product === null) {
             console.error("Product text is null");
             return;
