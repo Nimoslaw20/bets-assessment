@@ -68,7 +68,7 @@
 
     Steps to Test:
       - After login.
-      - On the products page, observe the page for product
+      - On the products page, observe the page for products
       - Check for product name, description, image and price.
      
 
@@ -123,3 +123,7 @@
       - The count on the cart badge should increase when user add to the cart.
       - User should be able to see the added products in the cart.
     
+
+
+# **Some bugs Founds:**
+##User can checkout an empty cart.
