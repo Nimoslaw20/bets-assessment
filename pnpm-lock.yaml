@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@playwright/test': ^1.49.1
+
 importers:
 
   .:
@@ -36,7 +39,7 @@ packages:
   '@estruyf/github-actions-reporter@1.9.2':
     resolution: {integrity: sha512-D2+ePwTjbd4siY7VIWX1dJrE1bU3x9OO+FOj99hqU4zQhVGwMm0ozgNDUzJgHxdRZKtFoGcYWV5YLfZettR38A==}
     peerDependencies:
-      '@playwright/test': ^1.42.1
+      '@playwright/test': ^1.49.1
 
   '@fastify/busboy@2.1.1':
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
