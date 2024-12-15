@@ -1,5 +1,9 @@
 # **TEST PLAN**
 
+
+
+##Architecture
+
 # **Part 1: UT Testing**
 
 ## __Feature 1: Login Functionality__
@@ -132,10 +136,8 @@
 
 
 
-# **Part 1: API Testing**
+# **Part 2: API Testing**
 
-
-## Chosen API
 
 ### POST /pet – Create a new pet to the store.
 ### GET /pet/findByStatus – Find pet by ID.
@@ -171,6 +173,10 @@
 
 ```
 
+- Expected Outcome: The pet is created successfully, and the status code is 200.
+
+
+
 ### Test Case 2: Verify that adding a pet with an invalid data type returns a 500 internal server error.
 
      - Test Data:
@@ -196,7 +202,7 @@
 } 
 
 ```
-
+- Expected Outcome: The API should return a 500 Internal server error.
 
 
 ## Test Cases - GET /pet/findByStatus
@@ -213,6 +219,7 @@
   "status": "available"
 } 
 
+- Expected Outcome: The API should return a 200 status code and a list of pet with status "available"
 
 ```
 
@@ -229,6 +236,7 @@
   "status": ""
 } 
 
+- Expected Outcome: The API should return a 404 status code. 
 
 ```
 ### Test Case 3: Verify that api returns 404 when an uppercase status data is passed as a status
@@ -245,7 +253,27 @@
 
 
 ```
+- Expected Outcome: The API should return a 404 status code. 
 
 
+# Architecture
+
+## Why use Playwright:
+
+-  Playwright supports lot of language including Javascript and Typescript which I often use.
+
+-  Playright can eb used for both User Interface testing and also API testing.
+
+-  Playwright supprts parallel Execution hence test runs very fast.
+
+- Playright has a good ease when it comes to  CI/CD pipelines and reporting tools.
 
 
+## Why use Page Object Model
+
+1. This approach enhances consistency in coding practice.
+2. It provides a structured way to store user interface (UI) elements separately from test scripts.
+3. When UI elements change, only the page class needs updating, improving maintainability.
+4. Separating UI elements from test scripts makes the tests more readable and easier to understand.
+5. This helps easy debugging.
+6. UI elements and actions can be reused across multiple test cases, reducing duplication.
