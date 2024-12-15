@@ -258,7 +258,7 @@
 
 -  Playwright supports lot of language including Javascript and Typescript which I often use.
 
--  Playright can eb used for both User Interface testing and also API testing.
+-  Playright can be used for both User Interface testing and also API testing.
 
 -  Playwright supprts parallel Execution hence test runs very fast.
 
@@ -269,7 +269,7 @@
 
 1. This approach enhances consistency in coding practice.
 2. It provides a structured way to store user interface (UI) elements separately from test scripts.
-3. When UI elements change, only the page class needs updating, improving maintainability.
+3. In this case, when UI elements change, only the page class or elements needs updating, improving maintainability.
 4. Separating UI elements from test scripts makes the tests more readable and easier to understand.
 5. This helps easy debugging.
 6. UI elements and actions can be reused across multiple test cases, reducing duplication.
