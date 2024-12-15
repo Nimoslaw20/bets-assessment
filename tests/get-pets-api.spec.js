@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const apiData = require('../fixtures/api.json');
-const { expectStatus200,expectStatus500, expectStatus404, expectResponseBodyArray,  } = require('../utils/helper');
+const { expectStatus200, expectStatus404, expectResponseBodyArray,  } = require('../utils/helper');
 
 
 test.describe(`GET ${apiData.getPetByStatus}`, () => {
@@ -92,7 +92,7 @@ test.describe(`GET ${apiData.getPetByStatus}`, () => {
         status: ""
       }
     });
-    console.log("response.status() is ", response.status());
+   
   
     expectStatus404(response);
   

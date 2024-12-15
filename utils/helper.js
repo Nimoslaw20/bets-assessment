@@ -21,15 +21,18 @@ export async function getElementByRole(page, element, text) {
 
 
   export const expectStatus200 = (response) => {
+     console.log("response status is ", response.status());
     expect(response.status()).toBe(200);
   };
 
 
   export const expectStatus404 = (response) => {
+     console.log("response status is ", response.status());
     expect(response.status()).toBe(404);
   };
 
   export const expectStatus500 = (response) => {
+     console.log("response status is ", response.status());
     expect(response.status()).toBe(500);
   };
 

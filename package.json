@@ -13,5 +13,8 @@
   },
   "dependencies": {
     "@estruyf/github-actions-reporter": "^1.9.2"
-  }
+  },
+  "resolutions": {
+  "@playwright/test": "^1.49.1"
+}
 }

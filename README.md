@@ -273,3 +273,14 @@
 4. Separating UI elements from test scripts makes the tests more readable and easier to understand.
 5. This helps easy debugging.
 6. UI elements and actions can be reused across multiple test cases, reducing duplication.
+
+
+
+## How run the tests:
+1. Running all tests: `npx playwright test`
+2. Running a single test: `npx playwright test tests/{filename}.spec.js`
+
+
+
+## View report:
+1. View html report: `npx playwright show-report`
