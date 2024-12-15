@@ -127,8 +127,8 @@
     
 
 
-# **Some bugs Founds:**
-## 1. User can checkout an empty cart.
+# **Some Bugs Founds:**
+1. User can checkout an empty cart, thus, the system allows a user to complete the checkout process even when there are no items in their shopping cart.
 
 
 
