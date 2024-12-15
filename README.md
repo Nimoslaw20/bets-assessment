@@ -1,9 +1,5 @@
 # **TEST PLAN**
 
-
-
-##Architecture
-
 # **Part 1: UT Testing**
 
 ## __Feature 1: Login Functionality__
@@ -219,10 +215,8 @@
   "status": "available"
 } 
 
-- Expected Outcome: The API should return a 200 status code and a list of pet with status "available"
-
 ```
-
+- Expected Outcome: The API should return a 200 status code and a list of pet with status "available"
 
 ### Test Case 2: Verify that api returns 404 when an empty string is passed as a status
 
@@ -236,9 +230,11 @@
   "status": ""
 } 
 
-- Expected Outcome: The API should return a 404 status code. 
 
 ```
+
+- Expected Outcome: The API should return a 404 status code. 
+
 ### Test Case 3: Verify that api returns 404 when an uppercase status data is passed as a status
 
  - Test Data:
