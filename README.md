@@ -1,4 +1,4 @@
-#INTRODUCTION
+# INTRODUCTION
 
 This repository demonstrates an automated testing of the Login, Logout and Checkout Flow functionalities of the ecommerce website https://www.saucedemo.com/ using Playwright framework.
 
