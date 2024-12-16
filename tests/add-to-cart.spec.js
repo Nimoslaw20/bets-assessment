@@ -12,18 +12,16 @@ test.describe('Add to Cart & Checkout Flow', () => {
     loginPage = new LoginPage(page);
     addToCartPage = new AddToCartPage(page);
     await loginPage.goto();
+    await loginPage.login(userData.name, userData.password);
+    await loginPage.confirmUserDashboard(userData.products);
 
   });
   test('products page should have products', async ({page}) => {
-    await loginPage.login(userData.name, userData.password);
-    await loginPage.confirmUserDashboard(userData.products);
     await addToCartPage.checkProductProperties();
   });
 
   test('should be able to checkout multiple products', async ({page}) => {
     page.setDefaultTimeout(80000);
-    await loginPage.login(userData.name, userData.password);
-    await loginPage.confirmUserDashboard(userData.products);
     await addToCartPage.addAllItemsToCart();
     await addToCartPage.checkBadgeCount();
     await page.waitForTimeout(1000);
@@ -39,16 +37,12 @@ test.describe('Add to Cart & Checkout Flow', () => {
 
 
   test('should be able to add a product to cart', async ({page}) => {
-    await loginPage.login(userData.name, userData.password);
-    await loginPage.confirmUserDashboard(userData.products);
     await addToCartPage.clickToAddProduct(userData.item_1);
     await addToCartPage.checkProductBadgeByCount();
   });
 
 
   test('should be able to view  product details page', async ({page}) => {
-    await loginPage.login(userData.name, userData.password);
-    await loginPage.confirmUserDashboard(userData.products);
     await addToCartPage.getToItemDetails();
     await addToCartPage.getSelectedProductName(userData.item_1);
   });

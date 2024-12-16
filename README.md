@@ -281,9 +281,11 @@ This repository demonstrates an automated testing of the Login, Logout and Check
 
 
 
-## How run the tests:
-1. Running all tests: `npx playwright test`
-2. Running a single test: `npx playwright test tests/{filename}.spec.js`
+## How to run the tests:
+1. Clone the repository: `git clone https://github.com/Nimoslaw20/bets-assessment.git`
+2. Install dependencies: `pnpm install`
+3. Running all tests: `npx playwright test`
+4. Running a single test: `npx playwright test tests/filename.spec.js`
 
 
 
