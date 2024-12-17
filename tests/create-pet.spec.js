@@ -1,6 +1,7 @@
 
 const { test, expect } = require('@playwright/test');
 const apiData = require('../fixtures/api.json');
+const { expectStatus500 } = require('../utils/helper');
 
 test.describe(`POST ${apiData.pet}`, () => {
 
@@ -43,7 +44,7 @@ test.describe(`POST ${apiData.pet}`, () => {
 
 
 
-    test('should return 500 when internal server error occurs', async ({ request }) => {
+    test('should return 500 when a bad request is made', async ({ request }) => {
       const pet = {
         id: 2,
         category: {
@@ -68,8 +69,6 @@ test.describe(`POST ${apiData.pet}`, () => {
         data: pet
       });
       console.log("Response status is ", response.status());
-      expect(response.status()).toBe(500);
-  
-     
+      expectStatus500(response);
     });
   });

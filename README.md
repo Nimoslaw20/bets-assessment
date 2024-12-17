@@ -2,6 +2,8 @@
 
 This repository demonstrates an automated testing of the Login, Logout and Checkout Flow functionalities of the ecommerce website https://www.saucedemo.com/ using Playwright framework.
 
+Platform: Web
+
 
 # **TEST PLAN**
 
@@ -35,6 +37,7 @@ This repository demonstrates an automated testing of the Login, Logout and Check
 
     Steps to Test:
       - Navigate to the login page.
+      - Check for ui elements: forms, placeholder, button, colors, etc.
       - Enter invalid username and password.
       - Click on the login button.
       - Assert that an error message is displayed below the password field. 

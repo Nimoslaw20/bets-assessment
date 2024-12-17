@@ -1,9 +1,8 @@
 const { test, expect } = require('@playwright/test');
 const { LoginPage } = require('../pages/login-page.js');
 const { AddToCartPage } = require('../pages/add-to-cart.js');
-
 const userData = require('../fixtures/user.json');
-const { firstName, lastName, postCode } = require('../pages/objects/add-to-cart-objects.js');
+
 
 test.describe('Add to Cart & Checkout Flow', () => {
   let loginPage;
@@ -12,20 +11,21 @@ test.describe('Add to Cart & Checkout Flow', () => {
     loginPage = new LoginPage(page);
     addToCartPage = new AddToCartPage(page);
     await loginPage.goto();
-    await loginPage.login(userData.name, userData.password);
-    await loginPage.confirmUserDashboard(userData.products);
-
+    await loginPage.login(userData.standard_user, userData.password);
+    await addToCartPage.confirmProductsPage(userData.products, userData.dashboardUrl);
   });
   test('products page should have products', async ({page}) => {
+   
     await addToCartPage.checkProductProperties();
   });
 
   test('should be able to checkout multiple products', async ({page}) => {
+    await addToCartPage.confirmProductsPage(userData.products, userData.dashboardUrl);
     page.setDefaultTimeout(80000);
     await addToCartPage.addAllItemsToCart();
     await addToCartPage.checkBadgeCount();
     await page.waitForTimeout(1000);
-    await addToCartPage.goToCartPage();
+    await addToCartPage.goToCartPage(userData.cartPageUrl);
     await addToCartPage.checkout();
     await addToCartPage.fillUserDetail(userData.first_Name,  userData.last_Name, userData.zip_code);
     await addToCartPage.proceedToContinue();
@@ -37,12 +37,14 @@ test.describe('Add to Cart & Checkout Flow', () => {
 
 
   test('should be able to add a product to cart', async ({page}) => {
+    await addToCartPage.confirmProductsPage(userData.products, userData.dashboardUrl);
     await addToCartPage.clickToAddProduct(userData.item_1);
     await addToCartPage.checkProductBadgeByCount();
   });
 
 
   test('should be able to view  product details page', async ({page}) => {
+    await addToCartPage.confirmProductsPage(userData.products, userData.dashboardUrl,);
     await addToCartPage.getToItemDetails();
     await addToCartPage.getSelectedProductName(userData.item_1);
   });

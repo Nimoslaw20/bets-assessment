@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { LoginPage } = require('../pages/login-page.js');
 const { LogoutPage } = require('../pages/logout-page.js');
 const userData = require('../fixtures/user.json');
+const helper = require('../utils/helper.js');
 
 test.describe('Login Tests', () => {
   let loginPage;
@@ -13,16 +14,32 @@ test.describe('Login Tests', () => {
     await loginPage.goto();
   });
 
+
+
+
+ /*
+
+Check the login page has corect styling and properties
+
+
+
+ */
+
+
+test('should be able to access some login page elements', async () => {
+  await loginPage.checkPageTitle(userData.swag_labs);
+  await loginPage.checkLoginPageExist();
+});
+
   test('should be able to login with valid credentials', async () => {
-    await loginPage.login(userData.name, userData.password);
-    await loginPage.confirmUserDashboard(userData.products);
-   
+    await loginPage.login(userData.standard_user, userData.password);
+    await loginPage.confirmUserDashboard(userData.products,userData.dashboardUrl);
   });
 
  
-  test('should fail when invalid credentials are used', async () => {
-    await loginPage.login(userData.wrong_username, userData.wrong_password);
-    await loginPage.getErrorMessage();
+  test('should fail when locked_out_user credentials are used', async () => {
+    await loginPage.login(userData.locked_out_user, userData.password);
+    await loginPage.getErrorMessage(userData.locked_out_user_error_message);
   });
 
 

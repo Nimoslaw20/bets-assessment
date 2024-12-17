@@ -1,14 +1,17 @@
 {
-    "name": "standard_user",
+    "standard_user": "standard_user",
+    "locked_out_user":"locked_out_user",
     "password": "secret_sauce",
     "products":"Products",
-    "wrong_password":"allow_me",
-    "wrong_username":"wrong_password",
     "swag_labs":"Swag Labs",
     "item_1": "Sauce Labs Backpack",
     "item_2": "Sauce Labs Bolt T-Shirt",
     "first_Name": "Sauce",
     "last_Name": "Labs",
-    "zip_code": "10001"
+    "zip_code": "10001",
+    "your_cart":"Your Chart",
+    "dashboardUrl": "https://www.saucedemo.com/inventory.html",
+    "cartPageUrl":"https://www.saucedemo.com/cart.html",
+    "locked_out_user_error_message":"Epic sadface: Sorry, this user has been locked out."
 }
   

@@ -116,6 +116,13 @@ export class AddToCartPage {
         expect(badgeNumber).toEqual(6);
     }
 
+   async confirmProductsPage(text, expectedUrl){
+      await helper.getElementByExactText(this.page,text);
+      const currentUrl = await this.page.url();
+      console.log("currentUrl is ", currentUrl);
+      expect(currentUrl).toBe(expectedUrl);  
+    }
+  
 
     async checkProductBadgeByCount() {
         await this.page.waitForTimeout(2000);
@@ -129,9 +136,11 @@ export class AddToCartPage {
     }
 
    
-   async goToCartPage(){
-
+   async goToCartPage(expectedUrl){
      await (await helper.getLocator(this.page, this.cartIconElement)).click();
+     const currentUrl = await this.page.url();
+     console.log("currentUrl is ", currentUrl);
+     expect(currentUrl).toBe(expectedUrl);  
    }
       
 
@@ -203,9 +212,7 @@ export class AddToCartPage {
     
 
 
-   
   
-
   
   }
   

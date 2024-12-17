@@ -18,8 +18,6 @@ export async function getElementByRole(page, element, text) {
     return page.locator(element).click();
   }
 
-
-
   export const expectStatus200 = (response) => {
      console.log("response status is ", response.status());
     expect(response.status()).toBe(200);
