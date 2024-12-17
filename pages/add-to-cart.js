@@ -216,10 +216,8 @@ export class AddToCartPage {
 		).click();
 	}
 
-	async confirmOnCheckoutReview() {
-		await helper.getElementByExactText(this.page, "Checkout: Overview");
-	}
 
+  
 	async proceedToFinish() {
 		await (
 			await helper.getLocator(this.page, this.finishButtonElement)
