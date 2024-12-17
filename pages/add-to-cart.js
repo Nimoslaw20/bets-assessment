@@ -180,6 +180,10 @@ export class AddToCartPage {
 		console.log("badgeNumber is ", badgeNumber);
 		expect(badgeNumber).toBeGreaterThan(0);
 		expect(badgeNumber).toEqual(1);
+		const badgeColor = await badgeLocator.evaluate((element) => {
+			return getComputedStyle(element).backgroundColor;
+		});
+		expect(badgeColor).toBe("rgb(226, 35, 26)");
 	}
 
 	async goToCartPage(expectedUrl) {
