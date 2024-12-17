@@ -9,7 +9,10 @@
     "first_Name": "Sauce",
     "last_Name": "Labs",
     "zip_code": "10001",
-    "your_cart":"Your Chart",
+    "your_cart":"Your Cart",
+    "check_information":"Checkout: Your Information",
+    "checkout_overview":"Checkout: Overview",
+    "checkout_complete":"Checkout: Complete!",
     "dashboardUrl": "https://www.saucedemo.com/inventory.html",
     "cartPageUrl":"https://www.saucedemo.com/cart.html",
     "locked_out_user_error_message":"Epic sadface: Sorry, this user has been locked out."
